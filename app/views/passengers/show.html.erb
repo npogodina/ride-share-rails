@@ -1,0 +1,47 @@
+<div class="container">
+
+  <div class="jumbotron mx-auto" style="width: 50%">
+    <img src="https://pbs.twimg.com/profile_images/418948850796097536/ljbH1awg.jpeg"
+       alt="Passenger's profile picture"
+       class="rounded-circle d-block mx-auto mb-3"
+       style="width: 45%"
+    >
+    <h1 class="text-center"> <%= @passenger.name %> </h1>
+    <%# <h3>About:</h2> %>
+    <ul class="list-group list-group-flush mb-3">
+      <li class="list-group-item">Phone number: <%= @passenger.phone_num %></li>
+      <li class="list-group-item">Total trips: 5 </li>
+      <li class="list-group-item">Total paid: $1000 </li>
+    </ul>
+
+    <a class="btn btn-primary" href= <%= edit_passenger_path(@passenger) %> >
+      Edit
+    </a>
+    
+    <%= link_to "Delete", passenger_path(@passenger), method: :delete, data: {confirm: "Delete passenger?"}, class: "btn btn-danger" %>
+    
+  </div>
+  <h3 class="text-center">Trips</h2>
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Date</th>
+        <th scope="col">Rating</th>
+        <th scope="col">Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @trips.each_with_index do |trip, i| %>
+      <tr class="list-group-item-action">
+        <th scope="row"> <%= i + 1 %> </th>
+        <td> <%= trip.date %> </td>
+        <td> <%= trip.rating %> </td>
+        <td> $<%= trip.cost %> </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
