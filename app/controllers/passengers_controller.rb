@@ -3,72 +3,71 @@ class PassengersController < ApplicationController
     @passengers = Passenger.all
   end
 
-  # def show
-  #   driver_id = params[:id]
-  #   @driver = Driver.find_by(id: driver_id)
-  #   if @driver.nil?
-  #     head :not_found
-  #     return
-  #   end
+  def show
+    @passenger = Passenger.find_by(id: params[:id])
+    if @passenger.nil?
+      head :not_found
+      return
+    end
 
-  #   @trips = @driver.trips
-  # end
+    @trips = @passenger.trips
+  end
 
-  # def new
-  #   @driver = Driver.new
-  # end
+  def new
+    @passenger = Passenger.new
+  end
 
-  # def create
-  #   @driver = Driver.new(driver_params) 
-  #   if @driver.save 
-  #     redirect_to drivers_path 
-  #     return
-  #   else 
-  #     render :new 
-  #     return
-  #   end
-  # end
+  def create
+    @passenger = Passenger.new(passenger_params) 
+    if @passenger.save 
+      redirect_to passengers_path 
+      return
+    else 
+      render :new 
+      return
+    end
+  end
 
-  # def edit
-  #   @driver = Driver.find_by(id: params[:id])
+  def edit
+    @passenger = Passenger.find_by(id: params[:id])
 
-  #   if @driver.nil?
-  #     head :not_found # ?
-  #     return
-  #   end
-  # end
+    if @passenger.nil?
+      head :not_found
+      return
+    end
+  end
 
-  # def update
-  #   @driver = Driver.find_by(id: params[:id])
-  #   if @driver.nil?
-  #     head :not_found # ?
-  #     return
-  #   elsif @driver.update(driver_params)
-  #     redirect_to drivers_path
-  #     return
-  #   else 
-  #     render :edit
-  #     return
-  #   end
-  # end
+  def update
+    @passenger = Passenger.find_by(id: params[:id])
+    if @passenger.nil?
+      head :not_found
+      return
+    elsif @passenger.update(passenger_params)
+      redirect_to passengers_path
+      return
+    else 
+      render :edit
+      return
+    end
+  end
 
-  # def destroy
-  #   @driver = Driver.find_by(id: params[:id])
+  def destroy
+    @passenger = Passenger.find_by(id: params[:id])
 
-  #   if @driver.nil?
-  #     head :not_found # ?
-  #     return
-  #   end
+    if @passenger.nil?
+      head :not_found
+      return
+    end
 
-  #   @driver.destroy
+    @passenger.destroy
 
-  #   redirect_to drivers_path
-  #   return
-  # end
+    redirect_to passengers_path
+    return
+  end
 
-  # private
+  private
 
-  # def driver_params
-  #   return params.require(:driver).permit(:name, :vin, :available)
-  # end
+  def passenger_params
+    return params.require(:passenger).permit(:name, :phone_num)
+  end
 end
