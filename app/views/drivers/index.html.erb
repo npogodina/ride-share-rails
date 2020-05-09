@@ -13,16 +13,18 @@
     </thead>
     <tbody>
       <% @drivers.each do |driver| %>
-        <tr>
-          <th scope="row"> <%= driver.id %> </th>
-          <td> <%= driver.name %> </td>
-          <td>5</td>
-          <% if driver.available %>
-            <td>Yes</td>
-          <% else %>
-            <td>No</td>
-          <% end %>
-        </tr>
+        
+          <tr class="list-group-item-action">
+            <th scope="row"> <%= driver.id %> </th>
+            <td> <%= link_to driver.name, driver_path(driver) %> </td>
+            <td>5</td>
+            <% if driver.available %>
+              <td>Yes</td>
+            <% else %>
+              <td>No</td>
+            <% end %>
+          </tr>
+        
       <% end %> 
     </tbody>
   </table>
