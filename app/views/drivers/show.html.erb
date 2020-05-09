@@ -32,10 +32,7 @@
       </li>
     </ul>
 
-    <a class="btn btn-primary" href= <%= edit_driver_path(@driver) %> >
-      Edit
-    </a>
-    
+    <%= link_to "Edit", edit_driver_path(@driver), class: "btn btn-primary" %>    
     <%= link_to "Delete", driver_path(@driver), method: :delete, data: {confirm: "Delete driver?"}, class: "btn btn-danger" %>
     
   </div>
