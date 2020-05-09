@@ -1,0 +1,13 @@
+<div class="container">
+  <%= form_with model: @driver, class: 'create-driver' do |f| %>
+    <p>Please update the following information:</p>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :vin %>
+    <%= f.text_field :vin %>
+
+    <%= f.submit "Update driver", class: "driver-button" %>
+  <% end %>
+</div>
