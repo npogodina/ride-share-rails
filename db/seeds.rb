@@ -1,49 +1,49 @@
 require 'csv'
 
-# DRIVER_FILE = Rails.root.join('db', 'seed_data', 'drivers.csv')
-# puts "Loading raw driver data from #{DRIVER_FILE}"
+DRIVER_FILE = Rails.root.join('db', 'seed_data', 'drivers.csv')
+puts "Loading raw driver data from #{DRIVER_FILE}"
 
-# driver_failures = []
-# CSV.foreach(DRIVER_FILE, :headers => true) do |row|
-#   driver = Driver.new
-#   driver.id = row['id']
-#   driver.name = row['name']
-#   driver.vin = row['vin']
-#   driver.available = row['available']
-#   successful = driver.save
-#   if !successful
-#     driver_failures << driver
-#     puts "Failed to save driver: #{driver.inspect}"
-#   else
-#     puts "Created driver: #{driver.inspect}"
-#   end
-# end
+driver_failures = []
+CSV.foreach(DRIVER_FILE, :headers => true) do |row|
+  driver = Driver.new
+  driver.id = row['id']
+  driver.name = row['name']
+  driver.vin = row['vin']
+  driver.available = row['available']
+  successful = driver.save
+  if !successful
+    driver_failures << driver
+    puts "Failed to save driver: #{driver.inspect}"
+  else
+    puts "Created driver: #{driver.inspect}"
+  end
+end
 
-# puts "Added #{Driver.count} driver records"
-# puts "#{driver_failures.length} drivers failed to save"
+puts "Added #{Driver.count} driver records"
+puts "#{driver_failures.length} drivers failed to save"
 
 
 
-# PASSENGER_FILE = Rails.root.join('db', 'seed_data', 'passengers.csv')
-# puts "Loading raw passenger data from #{PASSENGER_FILE}"
+PASSENGER_FILE = Rails.root.join('db', 'seed_data', 'passengers.csv')
+puts "Loading raw passenger data from #{PASSENGER_FILE}"
 
-# passenger_failures = []
-# CSV.foreach(PASSENGER_FILE, :headers => true) do |row|
-#   passenger = Passenger.new
-#   passenger.id = row['id']
-#   passenger.name = row['name']
-#   passenger.phone_num = row['phone_num']
-#   successful = passenger.save
-#   if !successful
-#     passenger_failures << passenger
-#     puts "Failed to save passenger: #{passenger.inspect}"
-#   else
-#     puts "Created passenger: #{passenger.inspect}"
-#   end
-# end
+passenger_failures = []
+CSV.foreach(PASSENGER_FILE, :headers => true) do |row|
+  passenger = Passenger.new
+  passenger.id = row['id']
+  passenger.name = row['name']
+  passenger.phone_num = row['phone_num']
+  successful = passenger.save
+  if !successful
+    passenger_failures << passenger
+    puts "Failed to save passenger: #{passenger.inspect}"
+  else
+    puts "Created passenger: #{passenger.inspect}"
+  end
+end
 
-# puts "Added #{Passenger.count} passenger records"
-# puts "#{passenger_failures.length} passengers failed to save"
+puts "Added #{Passenger.count} passenger records"
+puts "#{passenger_failures.length} passengers failed to save"
 
 
 
