@@ -17,7 +17,13 @@
           <tr class="list-group-item-action">
             <th scope="row"> <%= driver.id %> </th>
             <td> <%= link_to driver.name, driver_path(driver) %> </td>
-            <td>5</td>
+            
+            <% if driver.average_rating > 0 %>
+              <td> <%= driver.average_rating %> </td>
+            <% else %>
+              <td>N/A</td>
+            <% end %>
+            
             <% if driver.available %>
               <td>Yes</td>
             <% else %>

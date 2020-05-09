@@ -13,7 +13,16 @@
 
     <li class="list-group-item">VIN: <%= @driver.vin %></li>
     <li class="list-group-item">Total income: $ <%= @driver.total_earnings %> </li>
-    <li class="list-group-item">Average Rating: 5</li>
+    
+    <li class="list-group-item">
+      Average Rating: 
+        <% if @driver.average_rating > 0 %>
+          <%= @driver.average_rating %>
+        <% else %>
+          N/A
+        <% end %>
+    </li>
+    
     <%= link_to "Edit", edit_driver_path(@driver) %>
     <%= link_to "Delete", driver_path(@driver), method: :delete, data: {confirm: "Delete driver?"}%>
   </ul>
