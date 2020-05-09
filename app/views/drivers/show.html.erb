@@ -1,0 +1,21 @@
+<div class="container">
+  <h1> <%= @driver.name %> </h1>
+  <h2>Stats:</h2>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+    Availability:
+      <% if @driver.available %>
+        <td>Yes</td>
+      <% else %>
+        <td>No</td>
+      <% end %>
+    </li>
+
+    <li class="list-group-item">VIN: <%= @driver.vin %></li>
+    <li class="list-group-item">Total income: $1000</li>
+    <li class="list-group-item">Average Rating: 5</li>
+  </ul>
+
+  <h2>Trips</h2>
+
+</div>
