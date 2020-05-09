@@ -1,0 +1,49 @@
+<div class="container">
+
+  <div class="jumbotron">
+    <h1 class="text-center mb-4"> Trip <%= @trip.id %> </h1>
+    <div class="row mb-4">
+      <div class="col-sm-6">
+        <div class="card bg-light">
+          <div class="card-body">
+            
+            <img src="https://pbs.twimg.com/profile_images/558023192451620865/V92DiRPn_400x400.jpeg"
+              alt="Driver's profile picture"
+              class="rounded-circle d-block mx-auto mb-3"
+              style="width: 45%"
+            >
+
+            <h5 class="card-title">Driver: <%= @driver.name %> </h5>
+            <%= link_to "Go to Driver", driver_path(@driver), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body bg-light">
+
+            <img src="https://pbs.twimg.com/profile_images/418948850796097536/ljbH1awg.jpeg"
+              alt="Passenger's profile picture"
+              class="rounded-circle d-block mx-auto mb-3"
+              style="width: 45%"
+            >
+
+            <h5 class="card-title">Passenger: <%=@passenger.name %> </h5>
+            <%= link_to "Go to Passenger", passenger_path(@passenger), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-50 mx-auto">
+      <ul class="list-group list-group-flush mb-3">
+        <li class="list-group-item">Date: <%= @trip.date %></li>
+        <li class="list-group-item">Rating: <%= @trip.rating %></li>
+        <li class="list-group-item">Cost: <%= @trip.cost %></li>
+      </ul>
+
+      <%= link_to "Edit Trip", edit_trip_path(@trip), class: "btn btn-primary" %>
+      <%= link_to "Delete Trip", trip_path(@trip), method: :delete, data: {confirm: "Delete trip?"}, class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>
