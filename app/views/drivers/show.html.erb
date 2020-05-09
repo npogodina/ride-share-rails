@@ -40,4 +40,27 @@
     
   </div>
   <h3 class="text-center">Trips</h2>
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Date</th>
+        <th scope="col">Rating</th>
+        <th scope="col">Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @trips.each_with_index do |trip, i| %>
+      <tr class="list-group-item-action">
+        <th scope="row"> <%= i + 1 %> </th>
+        <td> <%= trip.date %> </td>
+        <td> <%= trip.rating %> </td>
+        <td> $<%= trip.cost %> </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
 </div>
