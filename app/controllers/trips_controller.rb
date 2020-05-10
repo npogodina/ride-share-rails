@@ -17,14 +17,17 @@ class TripsController < ApplicationController
   end
 
   def create
+    driver = Driver.find_by(available: true)
+
     @trip = Trip.new(
       passenger_id: params[:passenger_id],
-      driver_id: 1,
+      driver_id: driver.id,
       date: Date.today,
       rating: nil,
       cost: 1000
     )
-    if @trip.save 
+    if @trip.save
+      driver.set_unavailable 
       redirect_to passengers_path 
       return
     else 

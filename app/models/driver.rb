@@ -20,4 +20,11 @@ class Driver < ApplicationRecord
 
     return average_rating
   end
+
+  def set_unavailable
+    self.available = false
+    self.save 
+    return true
+  end
+
 end
