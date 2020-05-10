@@ -28,10 +28,10 @@ class TripsController < ApplicationController
     )
     if @trip.save
       driver.set_unavailable 
-      redirect_to passengers_path 
+      redirect_to passenger_path(params[:passenger_id])
       return
     else 
-      redirect_to drivers_path 
+      redirect_to passenger_path(params[:passenger_id])
       return
     end
   end
