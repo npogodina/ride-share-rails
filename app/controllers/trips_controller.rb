@@ -24,7 +24,7 @@ class TripsController < ApplicationController
       driver_id: driver.id,
       date: Date.today,
       rating: nil,
-      cost: 1000
+      cost: rand(1000..3000)
     )
     if @trip.save
       driver.set_unavailable 
