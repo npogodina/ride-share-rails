@@ -14,7 +14,7 @@
       <li class="list-group-item">Total paid: $1000 </li>
     </ul>
 
-    <%= link_to "Request Trip", passengers_path, class: "btn btn-primary" %>
+    <%= link_to "Request Trip", passenger_trips_path(@passenger.id), method: :create, class: "btn btn-primary" %>
     <%= link_to "Edit", edit_passenger_path(@passenger), class: "btn btn-primary" %>
     <%= link_to "Delete", passenger_path(@passenger), method: :delete, data: {confirm: "Delete passenger?"}, class: "btn btn-danger" %>
     
