@@ -1,0 +1,16 @@
+<div class="container">
+  <%= form_with model: @trip, class: '' do |f| %>
+    <p>You're welcome to edit the following information:</p>
+
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+
+    <%= f.label :rating %>
+    <%= f.select :rating, [1, 2, 3, 4, 5] %>
+
+    <%= f.label :cost %>
+    <%= f.text_field :cost %>
+
+    <%= f.submit "Update trip", class: "" %>
+  <% end %>
+</div>

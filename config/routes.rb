@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :passengers do
     resources :trips, only: :create
   end
-  resources :trips, expect: [:index]
+  resources :trips, expect: [:index, :new]
 end

@@ -12,10 +12,6 @@ class TripsController < ApplicationController
     @passenger = @trip.passenger
   end
 
-  def new # ?
-    @trip = Trip.new
-  end
-
   def create
     driver = Driver.find_by(available: true)
 
@@ -50,8 +46,8 @@ class TripsController < ApplicationController
     if @trip.nil?
       head :not_found
       return
-    elsif @trip.update()
-      redirect_to trips_path
+    elsif @trip.update(trip_params)
+      redirect_to trip_path(params[:id])
       return
     else 
       render :edit
@@ -69,7 +65,11 @@ class TripsController < ApplicationController
 
     @trip.destroy
 
-    redirect_to trips_path
+    redirect_to drivers_path
     return
+  end
+
+  def trip_params
+    return params.require(:trip).permit(:date, :rating, :cost)
   end
 end
