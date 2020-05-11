@@ -20,7 +20,7 @@
       </li>
 
       <li class="list-group-item">VIN: <%= @driver.vin %></li>
-      <li class="list-group-item">Total income: $ <%= @driver.total_earnings %> </li>
+      <li class="list-group-item">Total income: $ <%= '%.2f' % @driver.total_earnings %> </li>
       
       <li class="list-group-item">
         Average Rating: 
@@ -54,7 +54,7 @@
         <th scope="row"> <%= i + 1 %> </th>
         <td> <%= trip.date %> </td>
         <td> <%= trip.rating %> </td>
-        <td> $<%= trip.cost %> </td>
+        <td> $<%= trip.cost.round %> </td>
         <td> <%= link_to "Go!", trip_path(trip) %> </td>
       </tr>
       <% end %>

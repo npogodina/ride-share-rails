@@ -11,7 +11,7 @@
     <ul class="list-group list-group-flush mb-3">
       <li class="list-group-item">Phone number: <%= @passenger.phone_num %></li>
       <li class="list-group-item">Total trips: <%= @passenger.total_trips %> </li>
-      <li class="list-group-item">Total paid: <%= @passenger.total_spent %> </li>
+      <li class="list-group-item">Total paid: $<%= @passenger.total_spent.round %> </li>
     </ul>
 
     <%= link_to "Request Trip", passenger_trips_path(@passenger.id), method: :create, class: "btn btn-primary" %>
@@ -37,7 +37,7 @@
         <th scope="row"> <%= i + 1 %> </th>
         <td> <%= trip.date %> </td>
         <td> <%= trip.rating %> </td>
-        <td> $<%= trip.cost %> </td>
+        <td> $<%= trip.cost.round %> </td>
         <td> <%= link_to "Go!", trip_path(trip) %> </td>
       </tr>
       <% end %>
