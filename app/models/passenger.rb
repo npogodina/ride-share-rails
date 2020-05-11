@@ -1,5 +1,5 @@
 class Passenger < ApplicationRecord
-  has_many :trips
+  has_many :trips, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
   validates :phone_num, presence: true
@@ -13,5 +13,4 @@ class Passenger < ApplicationRecord
   def total_trips
     self.trips.count
   end
-
 end
