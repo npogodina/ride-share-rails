@@ -44,7 +44,7 @@ class DriversController < ApplicationController
       head :not_found
       return
     elsif @driver.update(driver_params)
-      redirect_to drivers_path
+      redirect_to driver_path(params[:id])
       return
     else 
       render :edit

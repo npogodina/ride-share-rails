@@ -1,13 +1,29 @@
 <div class="container">
-  <%= form_with model: @driver, class: 'create-driver' do |f| %>
+  <h1>Adding new driver</h1>
+
+  <% if @driver.errors.any? %>
+    <ul class="errors">
+      <% @driver.errors.each do |column, message| %>
+        <li>
+          <strong><%= column.capitalize %></strong> <%= message %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= form_with model: @driver, class: "" do |f| %>
     <p>Please provide the following information:</p>
 
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <div class="form-group">
+      <%= f.label "Name" %>
+      <%= f.text_field :name, class:"form-control" %>
+    </div>
 
-    <%= f.label :vin %>
-    <%= f.text_field :vin %>
+    <div class="form-group">
+      <%= f.label "VIN:" %>
+      <%= f.text_field :vin, class:"form-control" %>
+    </div>
 
-    <%= f.submit "Add driver", class: "driver-button" %>
+    <%= f.submit "Add driver", class: "" %>
   <% end %>
 </div>
