@@ -1,15 +1,34 @@
 <div class="container">
-  <%= form_with model: @trip, class: '' do |f| %>
-    <p>You're welcome to edit the following information:</p>
+  <h1>Update trip info</h1>
 
+  <% if @trip.errors.any? %>
+    <ul class="errors">
+      <% @trip.errors.each do |column, message| %>
+        <li>
+          <strong><%= column.capitalize %></strong> <%= message %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+
+  <%= form_with model: @trip, class: "" do |f| %>
+    <p>Please update the following information:</p>
+
+    <div class="form-group">
     <%= f.label :date %>
-    <%= f.date_field :date %>
+    <%= f.date_field :date, class:"form-control" %>
+    </div>
 
+    <div class="form-group">
     <%= f.label :rating %>
-    <%= f.select :rating, [1, 2, 3, 4, 5] %>
+    <%= f.select :rating, [nil, 1, 2, 3, 4, 5], class:"form-control" %>
+    </div>
 
+    <div class="form-group">
     <%= f.label :cost %>
-    <%= f.text_field :cost %>
+    <%= f.text_field :cost , class:"form-control"%>
+    </div>
 
     <%= f.submit "Update trip", class: "" %>
   <% end %>

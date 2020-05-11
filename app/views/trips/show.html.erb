@@ -38,7 +38,12 @@
     <div class="w-50 mx-auto">
       <ul class="list-group list-group-flush mb-3">
         <li class="list-group-item">Date: <%= @trip.date %></li>
-        <li class="list-group-item">Rating: <%= @trip.rating %></li>
+        <li class="list-group-item">Rating: 
+          <% if @trip.rating %>
+            <%= @trip.rating %></li>
+          <% else %>
+            N/A
+          <% end %>
         <li class="list-group-item">Cost: <%= @trip.cost %></li>
       </ul>
 
