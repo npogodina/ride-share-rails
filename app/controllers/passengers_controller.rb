@@ -23,7 +23,7 @@ class PassengersController < ApplicationController
       redirect_to passengers_path 
       return
     else 
-      render :new 
+      render :new, status: :bad_request
       return
     end
   end
@@ -43,7 +43,7 @@ class PassengersController < ApplicationController
       head :not_found
       return
     elsif @passenger.update(passenger_params)
-      redirect_to passengers_path
+      redirect_to passenger_path(params[:id])
       return
     else 
       render :edit

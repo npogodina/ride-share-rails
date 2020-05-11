@@ -14,6 +14,9 @@ class TripsController < ApplicationController
 
   def create
     driver = Driver.find_by(available: true)
+    # what if none available?
+
+    # check if passenger exists?
 
     @trip = Trip.new(
       passenger_id: params[:passenger_id],

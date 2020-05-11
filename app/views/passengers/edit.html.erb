@@ -1,13 +1,29 @@
 <div class="container">
-  <%= form_with model: @passenger, class: 'create-passenger' do |f| %>
-    <p>You're welcome to edit the following information:</p>
+  <h1>Updating passenger info</h1>
 
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <% if @passenger.errors.any? %>
+    <ul class="errors">
+      <% @passenger.errors.each do |column, message| %>
+        <li>
+          <strong><%= column.capitalize %></strong> <%= message %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
 
-    <%= f.label :phone_num %>
-    <%= f.text_field :phone_num %>
+  <%= form_with model: @passenger, class: "" do |f| %>
+    <p>Please provide the following information:</p>
 
-    <%= f.submit "Update passenger", class: "passenger-button" %>
+    <div class="form-group">
+    <%= f.label "Name:" %>
+    <%= f.text_field :name, class:"form-control" %>
+    </div>
+
+    <div class="form-group">
+    <%= f.label "Phone number:" %>
+    <%= f.text_field :phone_num, class:"form-control" %>
+    </div>
+
+    <%= f.submit "Update passenger", class: "" %>
   <% end %>
 </div>
