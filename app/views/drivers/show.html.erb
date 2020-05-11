@@ -45,6 +45,7 @@
         <th scope="col">Date</th>
         <th scope="col">Rating</th>
         <th scope="col">Cost</th>
+        <th scope="col">Details</th>
       </tr>
     </thead>
     <tbody>
@@ -54,6 +55,7 @@
         <td> <%= trip.date %> </td>
         <td> <%= trip.rating %> </td>
         <td> $<%= trip.cost %> </td>
+        <td> <%= link_to "Go!", trip_path(trip) %> </td>
       </tr>
       <% end %>
     </tbody>
