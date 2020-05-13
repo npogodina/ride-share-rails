@@ -1,11 +1,10 @@
 <div class="container mt-5">
 
   <div class="jumbotron mx-auto" style="width: 50%">
-    <img src="https://pbs.twimg.com/profile_images/558023192451620865/V92DiRPn_400x400.jpeg"
-       alt="Driver's profile picture"
-       class="rounded-circle d-block mx-auto mb-3"
-       style="width: 45%"
-    >
+    <%= image_tag "driver.jpg",
+       class: "rounded-circle d-block mx-auto mb-3",
+       style: "width: 45%"
+    %>
     <h1 class="text-center"> <%= @driver.name %> </h1>
     <%# <h3>About:</h2> %>
     <ul class="list-group list-group-flush mb-3">
