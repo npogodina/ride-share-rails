@@ -55,6 +55,9 @@ describe PassengersController do
 
       new_passenger = Passenger.find_by(name: passenger_form_data[:passenger][:name])
       expect(new_passenger.phone_num).must_equal passenger_form_data[:passenger][:phone_num]
+
+      must_respond_with :redirect
+      must_redirect_to passenger_path(new_passenger.id)
     end
 
     it "does not create a passenger if the form data violates Passenger validations, and re-renders the form" do

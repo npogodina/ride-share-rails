@@ -13,10 +13,17 @@ class TripsController < ApplicationController
   end
 
   def create
-    driver = Driver.find_by(available: true)
-    # what if none available?
+    passenger = Passenger.find_by(id: params[:passenger_id])
+    if passenger.nil?
+      head :not_found
+      return
+    end
 
-    # check if passenger exists?
+    driver = Driver.find_by(available: true)
+    if driver.nil?
+      redirect_to passenger_path(params[:passenger_id])
+      return
+    end
 
     @trip = Trip.new(
       passenger_id: params[:passenger_id],
@@ -30,6 +37,7 @@ class TripsController < ApplicationController
       redirect_to passenger_path(params[:passenger_id])
       return
     else 
+      # TODO: error message
       redirect_to passenger_path(params[:passenger_id])
       return
     end
@@ -68,7 +76,7 @@ class TripsController < ApplicationController
 
     @trip.destroy
 
-    redirect_to drivers_path
+    redirect_to root_path
     return
   end
 

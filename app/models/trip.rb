@@ -5,4 +5,5 @@ class Trip < ApplicationRecord
   validates :driver_id, presence: true
   validates :passenger_id, presence: true
   validates :date, presence: true
+  validates :cost, presence: true, numericality: true
 end

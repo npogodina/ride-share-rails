@@ -191,7 +191,7 @@ describe DriversController do
       must_respond_with :missing
     end
 
-    it "does not create a driver if the form data violates Driver validations, and responds with a redirect" do
+    it "does not update a driver if the form data violates Driver validations, and responds with a redirect" do
       # Note: This will not pass until ActiveRecord Validations lesson
       # Arrange
       # Ensure there is an existing driver saved
@@ -216,7 +216,7 @@ describe DriversController do
       # Assert
       # Check that the controller redirects
       must_respond_with :success
-      # assert_template :new
+      # assert_template :edit
 
     end
   end
