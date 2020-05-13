@@ -148,7 +148,7 @@ describe PassengersController do
       }.wont_change "Passenger.count"
 
       must_respond_with :success
-      # assert_template :new
+      # assert_template :edit
     end
   end
 
